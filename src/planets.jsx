@@ -36,6 +36,7 @@ export default function Planets() {
 
     const containerStyle = {
         backgroundImage: 'url(https://www.pixelstalk.net/wp-content/uploads/images6/Star-Wars-Space-Desktop-Background.jpg)',
+        // using image from https://www.pixelstalk.net/star-wars-space-backgrounds-hd/
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         width: '100vw',
@@ -48,7 +49,6 @@ export default function Planets() {
         fontSize: '1.5rem',
         fontWeight: 'bold',
         textShadow: '1px 1px 2px #000000',
-
     };
 
     return (

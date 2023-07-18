@@ -13,7 +13,6 @@ function App() {
       <BrowserRouter>
         <Navbar />
         <Routes>
-
           <Route path="/Who are you today?" element={<StarWars />} />
           <Route path="/What's your planet today?" element={<Planets />} />
         </Routes>

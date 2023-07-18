@@ -36,7 +36,7 @@ export default function StarWars() {
 
     const containerStyle = {
         backgroundImage: 'url(https://e1.pxfuel.com/desktop-wallpaper/266/147/desktop-wallpaper-high-resolution-star-wars-backgrounds-scarif-star-wars.jpg)',
-        // using image from https://www.pxfuel.com/en/free-photo-eeqjy
+        // using image from https://www.pxfuel.com/en/desktop-wallpaper-hppdi
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         height: '70vh',
