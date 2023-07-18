@@ -1,28 +1,26 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import styles from './App.module.css';
 import './App.css';
+import Navbar from './Navbar';
+import StarWars from './starwars';
+import Planets from './planets';
 
 function App() {
-  const [image, setImage] = useState(true);
-
-  function clickHandler() {
-    setImage(!image);
-  }
-
   return (
-    <div className='container'>
-      <div className='header-title'>
-        <h1>Where are you Xur?</h1>
-      </div>
+    <div className="App">
 
-      <div className="Xur">
-        {image && (
-          <img src='https://www.bungie.net/img/destiny_content/pgcr/conceptual_xur.jpg' alt='Xur' className='Xur' />
-        )}
-      </div>
+      <BrowserRouter>
+        <Navbar />
+        <Routes>
 
-      <button onClick={clickHandler}>Show me where he is today</button>
+          <Route path="/Who are you today?" element={<StarWars />} />
+          <Route path="/What's your planet today?" element={<Planets />} />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }
 
 export default App;
+
