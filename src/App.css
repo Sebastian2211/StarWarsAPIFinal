@@ -1,23 +1,25 @@
-@import url('https://allfont.net/allfont.css?fonts=star-jedi');
-/* Using Star Wars font from https://allfont.net/download/star-jedi/ */
-
+/* font used from https://www.cdnfonts.com/star-wars.font */
 * {
     box-sizing: border-box;
-    margin: 0%;
-    padding: 0%;
+    margin: 0;
+    padding: 0;
+    font-family: 'Starjedi', Arial, sans-serif;
+}
+
+body {
     background-color: #000000;
-    font-family: 'Star Jedi', Arial, sans-serif;
 }
 
 @font-face {
-    font-family: 'Star Jedi', arial;
-    src: url('https://allfont.net/allfont.css?fonts=star-jedi') format('woff2');
+    font-family: 'Starjedi';
+    src: url('../src/fonts/Starjedi.ttf') format('truetype');
 }
+
 
 .navbar {
     background-color: transparent;
     padding: 10px;
-    position: fixed;
+    position: absolute;
     top: 0;
     width: 100%;
     align-items: center;
@@ -27,6 +29,7 @@
     margin-top: 1rem;
     margin-bottom: 1rem;
 }
+
 
 .navbar-nav {
     display: flex;
@@ -159,8 +162,95 @@ button:hover {
 h3 {
     font-size: 2rem;
     font-weight: 400;
-    margin-bottom: 1rem;
-    padding: 1rem;
+    padding: 10px;
+    background-color: transparent;
+    text-align: center;
+    color: white;
+    text-shadow: 1px 1px 2px red, 0 0 1em blue, 0 0 0.2em blue;
+    border: 0;
+}
+
+.card label {
+    display: block;
+    margin-top: 10px;
+    cursor: pointer;
+    background: transparent;
+    color: white;
+    text-shadow: 1px 1px 2px red, 0 0 1em blue, 0 0 0.2em blue;
+    font-size: 20px;
+    font-weight: 10;
+}
+
+label {
+    display: block;
+    margin-top: 10px;
+    cursor: pointer;
+    background: transparent;
+    color: white;
+    font-size: 20px;
+    font-weight: 10;
+}
+
+.card input[type="checkbox"] {
+    margin-right: 5px;
+    display: none;
+    background: transparent;
+}
+
+/* Add a green checkmark for watched movies */
+.card input[type="checkbox"]:checked+span {
+    color: green;
+    font-size: 20px;
+    font-weight: 10;
+    text-decoration: line-through;
+    text-shadow: 1px 1px 2px red, 0 0 1em blue, 0 0 0.2em blue;
+    background: transparent;
+}
+
+.movie-list {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    background-color: transparent;
+    border-radius: 20px;
+    box-shadow: 20px 20px 20px rgba(0, 0, 0, 0.2);
+    color: white;
+    font-size: 22px;
+    text-shadow: 1px 1px 2px red, 0 0 1em blue, 0 0 0.2em blue;
+    border: 0;
+    font-weight: 100;
+    height: fit-content;
+}
+
+.movie-item {
+    margin: 10px;
+    width: 250px;
+    height: 400px;
+    background-color: transparent;
+    border-radius: 20px;
+    box-shadow: 20px 20px 20px rgba(0, 0, 0, 0.2);
+    color: white;
+    font-size: 22px;
+    text-shadow: 1px 1px 2px red, 0 0 1em blue, 0 0 0.2em blue;
+    border: 0;
+    font-weight: 100;
+}
+
+.movie-item img {
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    box-shadow: 20px 20px 20px rgba(0, 0, 0, 0.2);
+}
+
+.movie-item:hover {
+    transform: scale(1.1);
+}
+
+h4 {
+    font-size: 1rem;
+    font-weight: 400;
+    padding: 10px;
     background-color: transparent;
     text-align: center;
     color: white;

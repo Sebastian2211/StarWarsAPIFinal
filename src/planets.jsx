@@ -61,6 +61,7 @@ export default function Planets() {
                     <p>Climate: {planet.climate}</p>
                     <p>Terrain: {planet.terrain}</p>
                     <p>Population: {planet.population}</p>
+                    <p>Resident: {planet.residents[0]}</p>
                 </div>
             )}
             <button onClick={fetchRandomPlanet}>Get Random Planet</button>
