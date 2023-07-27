@@ -6,6 +6,8 @@ export default function Planets() {
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(false);
 
+
+    // fetches a random planet from the Star Wars API
     const fetchRandomPlanet = () => {
         setLoading(true);
         fetch('https://swapi.dev/api/planets/')
@@ -22,6 +24,8 @@ export default function Planets() {
             });
     };
 
+
+    // fetches a random planet when the component mounts
     useEffect(() => {
         fetchRandomPlanet();
     }, []);
@@ -34,6 +38,8 @@ export default function Planets() {
         return <div>There was an error!</div>;
     }
 
+
+    // styling for the container
     const containerStyle = {
         backgroundImage: 'url(https://www.pixelstalk.net/wp-content/uploads/images6/Star-Wars-Space-Desktop-Background.jpg)',
         // using image from https://www.pixelstalk.net/star-wars-space-backgrounds-hd/
@@ -51,6 +57,7 @@ export default function Planets() {
         textShadow: '1px 1px 2px #000000',
     };
 
+    // styling for the card
     return (
         <div className="App" style={containerStyle}>
             <h1>Star Wars Planets</h1>

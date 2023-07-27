@@ -6,6 +6,8 @@ export default function StarWars() {
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(false);
 
+
+    // fetches a random person from the Star Wars API
     const fetchRandomPerson = () => {
         setLoading(true);
         fetch('https://swapi.dev/api/people/')
@@ -22,6 +24,8 @@ export default function StarWars() {
             });
     };
 
+
+    // fetches a random person when the component mounts
     useEffect(() => {
         fetchRandomPerson();
     }, []);
@@ -34,6 +38,7 @@ export default function StarWars() {
         return <div>There was an error!</div>;
     }
 
+    // styling for the container
     const containerStyle = {
         backgroundImage: 'url(https://e1.pxfuel.com/desktop-wallpaper/266/147/desktop-wallpaper-high-resolution-star-wars-backgrounds-scarif-star-wars.jpg)',
         // using image from https://www.pxfuel.com/en/desktop-wallpaper-hppdi
@@ -52,6 +57,7 @@ export default function StarWars() {
         textShadow: '0.5px 0.5px 1px #000000',
     };
 
+    // styling for the card
     return (
         <div className="App" style={containerStyle}>
             <h1>Star Wars Characters</h1>

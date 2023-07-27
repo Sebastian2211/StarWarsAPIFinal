@@ -7,6 +7,7 @@ export default function Movies({ user }) {
     const [error, setError] = useState(false);
     const [watchedMovies, setWatchedMovies] = useState({});
 
+    // fetches a random movie from the Star Wars API
     const fetchRandomMovie = () => {
         setLoading(true);
         fetch('https://swapi.dev/api/films/')
@@ -23,6 +24,8 @@ export default function Movies({ user }) {
             });
     };
 
+
+    // fetches a random movie when the component mounts
     useEffect(() => {
         fetchRandomMovie();
     }, []);
@@ -35,6 +38,8 @@ export default function Movies({ user }) {
         return <div>There was an error!</div>;
     }
 
+
+    // styling for the container
     const containerStyle = {
         backgroundImage: 'url(https://www.pixelstalk.net/wp-content/uploads/images6/Star-Wars-Space-Desktop-Background.jpg)',
         // using image from https://www.pixelstalk.net/star-wars-space-backgrounds-hd/
@@ -52,6 +57,8 @@ export default function Movies({ user }) {
         textShadow: '1px 1px 2px #000000',
     };
 
+
+    // const for stored movie images
     const movieImages = {
         "The Phantom Menace": {
             url: "https://m.media-amazon.com/images/M/MV5BYTRhNjcwNWQtMGJmMi00NmQyLWE2YzItODVmMTdjNWI0ZDA2XkEyXkFqcGdeQXVyNTAyODkwOQ@@._V1_.jpg",
@@ -91,6 +98,7 @@ export default function Movies({ user }) {
     };
 
 
+    // function to handle watched toggle
     const handleWatchedToggle = (movieTitle) => {
         setWatchedMovies((prevWatchedMovies) => ({
             ...prevWatchedMovies,
@@ -98,6 +106,8 @@ export default function Movies({ user }) {
         }));
     };
 
+
+    // styling for the card
     return (
         <div className="App" style={containerStyle}>
             <h1>Star Wars Movies</h1>
@@ -122,7 +132,7 @@ export default function Movies({ user }) {
                 ))}
             </div>
         </div>
-    );
 
+    );
 
 };
