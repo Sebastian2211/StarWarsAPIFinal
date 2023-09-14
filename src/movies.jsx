@@ -24,6 +24,45 @@ export default function Movies({ user }) {
             });
     };
 
+    const handleWatchedToggle = (movieTitle) => {
+        const isWatched = watchedMovies[movieTitle] || false;
+
+        if (!user || typeof user.id === 'undefined') {
+            console.error('User not provided or user.id is undefined.');
+            return;
+        }
+
+        // Make a POST request to send watched movie data to the server
+        fetch('/api/watched-movies', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                userId: user.id,
+                movieTitle,
+                watched: !isWatched,
+            }),
+        })
+            .then((response) => response.json())
+            .then((data) => {
+                if (data.success) {
+                    // Update the watchedMovies state on success
+                    setWatchedMovies((prevWatchedMovies) => ({
+                        ...prevWatchedMovies,
+                        [movieTitle]: !isWatched,
+                    }));
+                } else {
+                    // Handle error from the server if needed
+                    console.error('Error:', data.error);
+                }
+            })
+            .catch((error) => {
+                console.error('Fetch error:', error);
+            });
+    };
+
+
 
     // fetches a random movie when the component mounts
     useEffect(() => {
@@ -99,12 +138,12 @@ export default function Movies({ user }) {
 
 
     // function to handle watched toggle
-    const handleWatchedToggle = (movieTitle) => {
-        setWatchedMovies((prevWatchedMovies) => ({
-            ...prevWatchedMovies,
-            [movieTitle]: !prevWatchedMovies[movieTitle],
-        }));
-    };
+    // const handleWatchedToggle = (movieTitle) => {
+    //     setWatchedMovies((prevWatchedMovies) => ({
+    //         ...prevWatchedMovies,
+    //         [movieTitle]: !prevWatchedMovies[movieTitle],
+    //     }));
+    // };
 
 
     // styling for the card
@@ -132,7 +171,6 @@ export default function Movies({ user }) {
                 ))}
             </div>
         </div>
-
     );
 
 };
